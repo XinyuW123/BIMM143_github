@@ -1,0 +1,49 @@
+---
+title: "Class12Lab"
+author: "Xinyu Wen (A17115443)"
+format: pdf
+toc: true
+---
+
+## Q5
+```{r}
+mxl <- read.csv("rs8067378_MXL.csv")
+head(mxl)
+```
+
+```{r}
+table(mxl$Genotype..forward.strand)
+```
+```{r}
+table(mxl$Genotype..forward.strand.)/nrow(mxl)*100
+```
+
+## Q13
+```{r}
+rs806 <- read.table("rs8067378_ENSG00000172057.6.txt")
+rs806
+```
+
+```{r}
+table(rs806$geno)
+```
+
+```{r}
+summary(rs806)
+```
+```{r}
+rs806box <- boxplot(exp ~ geno, data = rs806)
+```
+
+Median values of each genotype:
+```{r}
+rs806box$stats[3, ]
+```
+
+
+
+## Q14
+```{r}
+boxplot(exp ~ geno, data = rs806)
+```
+A/A has relatively high expression value compared to G/G. This suggests that SNP (A —> G) will reduce the expression of ORMDL3.

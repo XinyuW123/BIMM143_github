@@ -1,0 +1,57 @@
+---
+title: "Class11Lab"
+author: "Xinyu Wen (A17115443)"
+format: html
+toc: TRUE
+---
+** Copy/imitate these steps, do it for my "find a gene" project.
+
+# AlphaFold Analysis for **find a gene** project
+
+Here we analyze our own gene with AlphaFold
+(starting from #8,https://bioboot.github.io/bimm143_W25/class-material/class11_alphafold.html)
+
+```{r}
+# Change this for YOUR results dir name
+results_dir <- "HIVpr_monomer_94b5b" 
+```
+
+```{r}
+# File names for all PDB models
+pdb_files <- list.files(path=results_dir,
+                        pattern="*.pdb",
+                        full.names = TRUE)
+
+# Print our PDB file names
+basename(pdb_files)
+```
+```{r}
+library(bio3d)
+```
+
+Align and superpose
+
+```{r}
+pdbs <- pdbaln(pdb_files, fit=TRUE, exefile="msa")
+pdbs
+```
+
+## RMSD analysis
+RMSD is a common measurement of structural distance used in structural biology.
+```{r}
+rd <-rmsd(pdbs, fit=T)
+rd
+```
+
+
+```{r}
+library(pheatmap)
+
+colnames(rd) <- paste0("m",1:5)
+rownames(rd) <- paste0("m",1:5)
+pheatmap(rd)
+```
+
+
+
+

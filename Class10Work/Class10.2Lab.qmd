@@ -1,0 +1,90 @@
+---
+title: "Class10.2Lab"
+author: "Xinyu Wen (A17115443)"
+format: html
+toc: TRUE
+---
+
+# 4. Comparative structure analysis of Adenylate Kinase
+
+## Step 1: Search and retrieve ADK structures
+```{r}
+library(bio3d)
+```
+
+Retrive a sequence for the protein we are intersted in. We will take ADK "1ake_A"
+The codes does the BLAST search for us, instead of doing it manually.
+```{r}
+id <- "1ake_A"
+aa <- get.seq(id)
+aa
+```
+
+Run a BLAST search of the PDB for all related sequences to our input `aa`.
+```{r}
+blast <- blast.pdb(aa)
+```
+
+```{r}
+hits <- plot(blast)
+```
+
+These are out "top hits". i.e. all the structures in the PDB database related to our input sequence.
+```{r}
+hits$pdb.id
+```
+
+## Step 3: 
+```{r}
+# Download releated PDB files
+files <- get.pdb(hits$pdb.id, path="pdbs", split=TRUE, gzip=TRUE)
+```
+
+
+## Step 4: Align and superpose structures
+
+Downloaded BiocManager and msa in Console
+
+```{r}
+# Align releated PDBs
+pdbs <- pdbaln(files, fit = TRUE, exefile="msa")
+```
+
+```{r}
+pdbs
+```
+
+## Step 5: PCA
+Let's use our old friend PCA to make sense o these confussing, complicated structure relationships.
+
+```{r}
+# Perform PCA
+pc <- pca(pdbs)
+```
+
+
+```{r}
+plot(pc)
+```
+
+Let's make a trajectory (or movie) of the main conformational changes captured by PC1. We will use the `mktrj()` function for this.
+```{r}
+mktrj(pc, file="pca_results.pdb")
+```
+Open this file in molstar viewer.
+
+Back of the envelope comparasion of the PDB size to UniProt
+```{r}
+pdb <- 231029
+uniprot <- 253206171
+
+pdb/uniprot * 100
+```
+
+
+
+
+
+
+
+
