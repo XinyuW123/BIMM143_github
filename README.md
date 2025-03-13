@@ -10,3 +10,23 @@ Classwork from WI25 [BIMM143](https://github.com/XinyuW123/BIMM143_github.git) a
 - Class07 [PCA](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class7Work/Class7Lab.html)
 
 - Class08 [Unsupervised Learning: Breast Cancer Project](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class8Work/Class8Lab.html)
+
+- Class09 [](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class9Work/Class9Lab.html)
+
+- Class10.1 [](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class10Work/Class10Lab.html)
+- Class10.2 [](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class10Work/Class10.2Lab.html)
+
+- Class11 [](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class11Work/AlphaFold%20Analysis%20for%20%22find%20a%20gene%22.html)
+
+- Class12 [](https://htmlpreview.github.io/?)
+
+- Class13 [](https://htmlpreview.github.io/?)
+
+- Class14 [](https://htmlpreview.github.io/?)
+
+
+- Class17 [](https://htmlpreview.github.io/?)
+
+- Class18 [](https://htmlpreview.github.io/?)
+
+- Class19 [](https://htmlpreview.github.io/?)
