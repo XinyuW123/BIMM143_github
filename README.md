@@ -22,6 +22,5 @@ Classwork from WI25 [BIMM143](https://github.com/XinyuW123/BIMM143_github.git) a
 
 - Class13 [Transcriptomics and the analysis of RNA-Seq data](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class13Work/Class13Lab.html)
 
-- Class14 [RNA-Seq analysis mini-project](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class14Work/14%3ARNA_Seq_analysis_mini-project.html)
 
 - Class18 [Mini Project: Investigating Pertussis Resurgence](https://htmlpreview.github.io/?https://raw.githubusercontent.com/XinyuW123/BIMM143_github/refs/heads/main/Class18Work/Class18WhoopingCough.html)
