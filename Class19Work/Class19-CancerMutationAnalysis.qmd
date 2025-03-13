@@ -1,0 +1,39 @@
+---
+title: "Class19:CancerMutationAnalysis"
+author: "Xinyu Wen (A17115443)"
+format: html
+toc: TRUE
+---
+
+```{r}
+library(bio3d)
+```
+
+```{r}
+myseq <- read.fasta("A17115443_mutant_seq.fa")
+head(myseq)
+```
+
+```{r}
+score <- conserv(myseq)
+```
+
+```{r}
+positions <- which(score !=1
+                   )
+positions
+```
+
+```{r}
+residues <- myseq$ali[,positions]
+residues
+```
+
+```{r}
+dim(myseq$ali)
+```
+
+
+
+
+

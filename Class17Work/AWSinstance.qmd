@@ -1,0 +1,33 @@
+---
+title: "Classs17AWS-notes"
+format: html
+---
+
+Instance ID: i-02abdc6cfd2ca2291 (BIMM143_XinyuW)
+
+1.Open an SSH client.
+2 .Locate yourprivate key file. The key used to launch this instance is BIMM143_XinyuW.pem
+3. Run this command, if necessary, to ensure your key is not publicly viewable.
+chmod 400 "BIMM143_XinyuW.pem"
+4. Connect to your instance using its Public DNS:
+ec2-34-213-61-15.us-west-2.compute.amazonaws.com
+
+Example:
+ssh -i Keyfile ubuntu@ec2-34-213-61-15.us-west-2.compute.amazonaws.com
+
+scp -i "Keyfile" ubuntu@ec2-34-213-61-15.us-west-2.compute.amazonaws.com:~/*_quant .
+scp -r -i "Keyfile" ubuntu@ec2-34-213-61-15.us-west-2.compute.amazonaws.com:~/*_quant .
+
+
+
+
+
+
+
+
+SRR600956 is data from a paper. We learned how to use commands to fetch data from a paper
+Used "prefetch SRR600956"
+
+
+
+
