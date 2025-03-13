@@ -1,0 +1,118 @@
+---
+title: "Q7, Q8, Q9 of Project"
+author: "Xinyu Wen"
+format: pdf
+toc: true
+---
+
+```{r}
+library(bio3d)
+```
+
+# Q7
+```{r}
+aln <- bio3d::read.fasta("Q5NewMSAmuscle-I20250225.aln-fasta")
+```
+
+```{r}
+aln$id <- c("Homo Sapien", "Anarrhichthys (Wolf eel)", "Cebidichthys (Monkeyface prickleback)", "Sander (Zander)", "Anoplopoma (Sablefish)", "Gasterosteus (Three-spined stickleback)", "Pungitius (Ninespine stickleback)")
+aln$id
+```
+
+
+
+
+
+```{r}
+seqidmatrix <- seqidentity(aln)
+```
+
+
+```{r}
+require(pheatmap)
+
+mycol <- c( "#C7E9C0", "#A1D99B", "#74C476", "#31A354", "#006D2C")
+
+pheatmap(seqidmatrix, color = mycol, breaks = c(0.7, 0.75, 0.8, 0.9, 0.95, 1), legend_breaks = c(0.7, 0.75, 0.8, 0.9, 0.95, 1))
+```
+
+
+# Q8
+
+```{r}
+results_dir <- "TargetSequenceColab" #downloaded file form Colab
+```
+
+```{r}
+pdb_files <- list.files(path=results_dir,
+                        pattern="*.pdb",
+                        full.names = TRUE)
+basename(pdb_files)
+```
+
+## blast.pdb
+```{r}
+pdb_inputseq <- paste0(aln$ali[6,], collapse = "") #Row 6 is the Gasterosteus sequence. Collapse change them from characters "E", "R", "G", "S"... to "ERGSAKRRTAS..."
+
+blast_pdb_res <- blast.pdb(pdb_inputseq)
+
+head(blast_pdb_res$hit.tbl)
+```
+
+```{r}
+pdb.annotate(c("3HQD_A", "4ZHI_A", "5ZO7_A"))
+```
+
+
+# Q9
+
+## Generate consensus sequence
+```{r}
+con <- bio3d::consensus(aln)
+
+conserv <- bio3d::conserv(x = aln)
+conserv
+```
+
+```{r}
+conserv_positions <- which(conserv == 1.00000000)
+conserv_positions
+```
+
+```{r}
+molstar_data <- data.frame(residue = conserv_positions, color = "red") 
+write.csv(molstar_data, "conserved_residues.csv", row.names = FALSE)
+```
+
+# Q9 correction
+
+```{r}
+aln_file <- list.files(path=results_dir,
+                       pattern=".a3m$",
+                        full.names = TRUE)
+aln_file
+```
+
+```{r}
+aln2 <- read.fasta(aln_file[1], to.upper = TRUE)
+```
+```{r}
+# Read a reference PDB structure
+pdb <- read.pdb("1hsg")
+```
+
+
+```{r}
+sim <- conserv(aln2)
+plotb3(sim[1:527], sse=trim.pdb(pdb, chain="A"),
+       ylab="Conservation Score")
+```
+```{r}
+con <- consensus(aln, cutoff = 0.995)
+con$seq
+```
+
+```{r}
+conserv_positions
+```
+
